@@ -1,0 +1,63 @@
+<div>
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="row mr-sm-2">
+      <button class="navbar-toggler sm-2 navButtons" type="button" data-toggle="collapse"
+              data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon wbdv-field wbdv-hamburger"></span>
+      </button>
+      <a class="navbar-brand navButtons wbdv-label mr-sm-2 wbdv-course-manager" href="#">Course Manager</a>
+      <form class="form-inline navButtons sm-2">
+        <input class="form-control mr-sm-2 wbdv-field wbdv-new-course" type="search"
+               placeholder="New Course Title" aria-label="New Course Title"/>
+        <button class="btn btn-outline-success my-2 my-sm-0 wbdv-button wbdv-add-course"
+                type="submit">Add Course</button>
+      </form>
+    </div>
+  </nav>
+  <div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>
+          <a class="navbar-brand courseElement mr-sm-2 wbdv-header wbdv-title">Course Title</a>
+        </th>
+        <th>
+          <div class="dropdown">
+            <button class="btn btn-secondary courseElement dropdown-toggle wbdv-header wbdv-owner"
+                    type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+              Owner
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Me</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </th>
+        <th>
+          <div class="icons">
+            <i class="fa fa-table"></i>
+            <i class="fa fa-list"></i>
+            <a href="#" class="icon"><i class="fa fa-sort"></i></a>
+          </div>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let course of courses">
+        <td>
+          <a class='nav-item' (click)="toCourseViewer(course._id)">{{course.title}}</a>
+        </td>
+        <td>
+          <button>
+            <h6 class="wbdv-row wbdv-owner">Me</h6>
+            <i class="fa fa-trash icon" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
