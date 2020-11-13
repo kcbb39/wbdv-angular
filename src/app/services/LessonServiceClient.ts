@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class LessonService {
-  findLessonsForModules = (module) =>
-    fetch(`https://wbdv-generic-server.herokuapp.com/api/jannunzi/courses/${module._id}/modules`)
+  findLessonsForModules = (mid) =>
+    fetch(`https://wbdv-generic-server.herokuapp.com/api/001299573/modules/${mid}/lessons`)
       .then(response => response.json())
 }

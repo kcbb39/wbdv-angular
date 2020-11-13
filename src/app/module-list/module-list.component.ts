@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ModuleService} from '../services/ModuleServiceClient';
 
 @Component({
@@ -7,10 +7,14 @@ import {ModuleService} from '../services/ModuleServiceClient';
   styleUrls: ['./module-list.component.css']
 })
 export class ModuleListComponent implements OnInit {
+  @Input() cid: string;
+  @Input() selectModule;
+  modules = [];
 
   constructor(private moduleService: ModuleService) { }
 
   ngOnInit(): void {
+    this.moduleService.findModulesForCourse(this.cid).then(modules => this.modules = modules);
   }
 
 }

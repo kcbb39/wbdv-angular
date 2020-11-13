@@ -14,15 +14,11 @@ export class CourseService {
       }
     })
       .then(response => response.json())
-  updateCourse = (course) =>
-    fetch(`https://wbdv-generic-server.herokuapp.com/api/001299573/courses/${course._id}`, {
-      method: 'PUT',
-      body: JSON.stringify(course),
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-      .then(response => response.json())
+
+  findCourse = (cid: string) => {
+    return axios.get('https://wbdv-generic-server.herokuapp.com/api/001299573/courses/' + cid);
+  }
+
   deleteCourse = (course) =>
     fetch(`https://wbdv-generic-server.herokuapp.com/api/001299573/courses/${course._id}`, {
       method: 'DELETE'

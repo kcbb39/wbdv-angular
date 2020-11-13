@@ -1,17 +1,7 @@
-<ul class="nav nav-tabs" *ngFor="let lesson of lessons">
-  <li class="nav-item">
+<ul class="nav nav-tabs">
+  <li class="nav-item" *ngFor="let lesson of lessons">
     <a class="nav-link">
-      <i class="fa fa-times icon"></i>
-      {lesson.title}
-      <i class="fa fa-pencil icon"></i>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">
-      <a href="#">
-        New Lesson
-        <i class="fa fa-plus icon"></i>
-      </a>
+      {{lesson.title}}
     </a>
   </li>
 </ul>

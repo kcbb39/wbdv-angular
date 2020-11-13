@@ -7,21 +7,23 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li>
-          <a href="/"><i class="fa fa-times-circle wbdv-close icon"></i></a>
+          <a routerLink="../table/courses">
+            <button>x</button>
+          </a>
         </li>
         <li class="nav-item active">
-          <h3>title</h3>
+          <h3>{{this.courseTitle}}</h3>
         </li>
       </ul>
     </div>
   </nav>
   <div class="row">
     <div class="col-3">
-      <a>ahhhhhh modules</a>
+      <app-module-list [cid]="cid" [selectModule]="selectModule"></app-module-list>
     </div>
     <div class="Lessons col-8 d-flex">
       <div class="col-12 wbdv-lessons">
-        <a>ahhhhh lessosn</a>
+        <app-lesson-tabs [lessons]="lessons"></app-lesson-tabs>
       </div>
     </div>
   </div>

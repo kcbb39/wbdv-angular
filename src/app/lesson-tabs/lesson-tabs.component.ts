@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {LessonService} from '../services/LessonServiceClient';
 
 @Component({
   selector: 'app-lesson-tabs',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lesson-tabs.component.css']
 })
 export class LessonTabsComponent implements OnInit {
-
-  constructor() { }
+  @Input() lessons;
+  constructor(private lessonService: LessonService) { }
 
   ngOnInit(): void {
   }
