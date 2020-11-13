@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ModuleService} from '../services/ModuleServiceClient';
 
 @Component({
   selector: 'app-module-list',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModuleListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private moduleService: ModuleService) { }
 
   ngOnInit(): void {
   }

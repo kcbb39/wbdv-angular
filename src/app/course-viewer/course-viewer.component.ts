@@ -13,11 +13,10 @@ export class CourseViewerComponent implements OnInit {
   lessons = [];
   courseTitle = '';
   cid = '';
+  hello: string;
   constructor(private activatedRoute: ActivatedRoute,
               private moduleService: ModuleService,
-              private lessonService: LessonService,
-              cid) {
-    this.cid = cid;
+              private lessonService: LessonService) {
   }
 
   ngOnInit(): void {
@@ -28,5 +27,4 @@ export class CourseViewerComponent implements OnInit {
         .then(lessons => this.lessons = lessons);
     });
   }
-
 }

@@ -1,1 +1,16 @@
-<p>module-list works!</p>
+<div>
+  <ul class="list-group" *ngFor="let module of modules">
+    <li class="list-group-item">
+      <a>
+      <i class="fa fa-times icon"></i>
+      </a>
+      {{module.title}}
+      <i class="fa fa-pencil icon"></i>
+    </li>
+
+    <li class="btn btn-info" >
+    <i class="fa fa-plus icon"></i>
+    New Module
+    </li>
+  </ul>
+</div>
