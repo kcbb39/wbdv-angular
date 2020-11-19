@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {CourseService} from '../services/CourseServiceClient';
 import {ModuleService} from '../services/ModuleServiceClient';
 import {LessonService} from '../services/LessonServiceClient';
+import {QuizzesServiceClient} from '../services/QuizService';
 
 @Component({
   selector: 'app-course-table-component',
@@ -15,9 +16,11 @@ export class CourseTableComponent implements OnInit {
   modules = [];
   selectedModule = {title: ''};
   lessons = [];
+  quizzes = [];
   constructor(private courseService: CourseService,
               private moduleService: ModuleService,
               private lessonService: LessonService,
+              private quizService: QuizzesServiceClient,
               private router: Router) { }
 
   createCourse = () =>
@@ -43,7 +46,9 @@ export class CourseTableComponent implements OnInit {
     this.selectedModule = this.selectedModule[0];
     this.lessonService.findLessonsForModules(this.selectedModule).then(lessons => this.lessons = lessons);
   }
-
+  printQuizzes(): void{
+    this.quizService.findAllQuizzes().then(quizzes => console.log(quizzes));
+  }
   ngOnInit(): void {
     this.courseService.findAllCourses()
       .then(courses => this.courses = courses);

@@ -49,10 +49,14 @@
       <tr *ngFor="let course of courses">
         <td>
           <a class='nav-item' (click)="toCourseViewer(course._id)">{{course.title}}</a>
+          <a class="float-right"
+             routerLink="/courses/{{course._id}}/quizzes">
+            Quizzes
+          </a>
         </td>
         <td>
           <button>
-            <h6 class="wbdv-row wbdv-owner">Me</h6>
+            <h6 class="wbdv-row wbdv-owner" (click)="printQuizzes()">Me</h6>
             <i class="fa fa-trash icon" aria-hidden="true"></i>
           </button>
         </td>
