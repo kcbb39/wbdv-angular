@@ -7,9 +7,12 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class MultipleChoiceQuestionComponent implements OnInit {
   @Input() question;
-  constructor() { }
+  @Input() grading;
+  rightAnswer = '';
+  constructor() {}
 
   ngOnInit(): void {
+    this.rightAnswer = this.question.correct;
   }
 
 }

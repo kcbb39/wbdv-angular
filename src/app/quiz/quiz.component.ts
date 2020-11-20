@@ -8,16 +8,19 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
-
+  grading = false;
 
   constructor(private svc: QuestionsServiceClient,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {}
   questions = [];
   ngOnInit(): void {
     this.route.params.subscribe(ps => {
       this.svc.findQuestionsForQuiz(ps.quizId)
         .then(qs => this.questions = qs);
     });
+  }
+  grade(): void {
+    this.grading = true;
   }
 
 
