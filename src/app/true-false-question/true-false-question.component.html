@@ -5,15 +5,21 @@
       <div>
         <input type="radio" id="{{question.title}} + T" name="{{question.question}}">
         <label for="{{question.title}} + T">True</label>
-        <label class="fa times" *ngIf="grading && 'true' == this.rightAnswer">
+        <label  *ngIf="grading && 'true' == this.rightAnswer">
           <i class="fa fa-check"></i>
+        </label>
+        <label  *ngIf="grading && 'true' != this.rightAnswer">
+          <i class="fa fa-times"></i>
         </label>
       </div>
       <div>
         <input type="radio" id="{{question.title}} + F" name="{{question.question}}">
         <label for="{{question.title}} + F">False</label>
-        <label class="fa times" *ngIf="grading && 'false' == this.rightAnswer">
+        <label *ngIf="grading && 'false' == this.rightAnswer">
           <i class="fa fa-check"></i>
+        </label>
+        <label  *ngIf="grading && 'false' != this.rightAnswer">
+          <i class="fa fa-times"></i>
         </label>
       </div>
     </form>
