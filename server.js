@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost:27017/wbdv-angular',
+  {useNewUrlParser: true, useUnifiedTopology: true})
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -13,6 +16,12 @@ app.use(function (req, res, next) {
 
 require('./node_server/controllers/quizzes.controller.server')(app)
 require('./node_server/controllers/question.controller.server')(app)
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+require('./node_server/controllers/quizzes.controller.server')(app)
+require('./node_server/controllers/questions.controller.server')(app)
+require('./node_server/controllers/quiz-attempts.controller.server')(app)
 
 app.use(express.static(__dirname + '/dist/wbdv-angular'));
 app.get('/*', function(req,res) {

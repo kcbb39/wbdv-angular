@@ -1,2 +1,18 @@
-let service = require('./services/quiz.services.server')
-service.findAllQuizzes().then(resp => {console.log(resp)})
+
+
+
+require('./data/db')()
+
+
+
+
+
+const questionDao = require('./daos/questions.dao.server')
+
+questionDao.findAllQuestions().then(questions => {
+
+
+  console.log(questions)
+
+
+})
