@@ -23,7 +23,7 @@ export class QuizComponent implements OnInit {
   }
   grade(): void {
     this.grading = true;
-    fetch(`http://localhost:3000/api/quizzes/${this.quizId}/attempts`, {
+    fetch(`/api/quizzes/${this.quizId}/attempts`, {
       method: 'POST',
       body: JSON.stringify(this.questions),
       headers: {
